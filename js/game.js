@@ -4,6 +4,12 @@ function Game(canvasId) {
   this.fps = 60;
   this.reset();
   this.crono = 60;
+  this.mainSong = new Audio();
+  this.mainSong.volume = 0.5;
+  this.mainSong.src = "audios/maintheme.mp3"
+  this.objectSong = new Audio();
+  this.objectSong.volume = 0.3;
+  this.objectSong.src = "audios/objetos.mp3"
 }
 
 /* start */
@@ -12,12 +18,14 @@ Game.prototype.start = function () {
   this.draw();
   this.drawCrono();
   this.moveAll();
+  this.mainSong.play();
   this.framesCounter++;
   //esto controla la velocidad a la que se generan los obstaculos
   if (this.framesCounter % 60 == 0) {
     this.generateObjects();
   }
-  if (this.isCollision()) {}
+  if (this.isCollision()) {
+  }
   if (this.framesCounter % 200 == 0) {
     this.clearObjects();
   }
@@ -41,7 +49,7 @@ Game.prototype.time = function () {
   setTimeout(function () {
     clearInterval(this.cronominterval)
     // this.stop(); 
-    if (confirm("FIN DEL TIEMPO")) {
+    if (confirm("FIN DEL TIEMPO.")) {
       this.reset();
 
     }
@@ -96,8 +104,9 @@ Game.prototype.isCollision = function () {
         (player.y + player.h) >= obj.y &&
         player.y < obj.y + obj.h) {
         player.points += obj.points;
+        this.objectSong.play();
         this.objects.splice(index, 1);
-      }
+      } 
     }.bind(this));
   }.bind(this));
 }
