@@ -1,7 +1,7 @@
 function Background(game) {
     this.game = game;
     this.img = new Image();
-    this.img.src = 'images/Giant_Chasm_Entrance_Summer_BW.png';
+    this.img.src = 'map.png';
     this.x = 0;
     this.y = 0;
     this.dx = 10;
