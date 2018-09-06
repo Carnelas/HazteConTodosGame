@@ -1,7 +1,6 @@
 function Player(game, number) {
   this.game = game;
   this.img = new Image();
-  //this.img.src = 'images/player.png';
   this.number = number;
   this.setKeys(this.number);
   this.setListeners();
@@ -28,7 +27,7 @@ Player.prototype.draw = function () {
   this.game.ctx.drawImage(
     this.img,
     this.img.frameIndex * Math.floor(this.img.width / this.img.frames),
-    this.direc, // al pegar aqui la altura de una unidad sube y baja el sprite
+    this.direc,
     Math.floor(this.img.width / this.img.frames),
     this.img.width / this.img.frames,
     this.x,
@@ -41,7 +40,6 @@ Player.prototype.draw = function () {
 
 
 Player.prototype.move = function (pos, speed) {
-
   var nextPosX = this.x + this.speedX;
   var nextPosY = this.y + this.speedY;
   if ((nextPosX <= 0 || nextPosX >= 1330) || (nextPosY <= 0 || nextPosY >= 730)) {
