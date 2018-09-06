@@ -6,10 +6,10 @@ function Game(canvasId) {
   this.crono = 60;
   this.mainSong = new Audio();
   this.mainSong.volume = 0.5;
-  this.mainSong.src = "Audios/maintheme.mp3"
+  this.mainSong.src = "audios/maintheme.mp3"
   this.objectSong = new Audio();
   this.objectSong.volume = 0.3;
-  this.objectSong.src = "Audios/objetos.mp3"
+  this.objectSong.src = "audios/objetos.mp3"
 }
 
 /* start */
@@ -114,9 +114,9 @@ Game.prototype.isCollision = function () {
 // dibujar puntos en la pantalla
 Game.prototype.drawPoints = function () {
   this.players.forEach(function (player, index) {
-    this.ctx.font = "60px Helvetica";
+    this.ctx.font = "60px Verdana";
     this.ctx.fillStyle = "black";
-    this.ctx.fillText(Math.floor(player.points), 50 + 1250 * index, 50);
+    this.ctx.fillText(Math.floor(player.points), 50 + 1150 * index, 50);
   }.bind(this))
 }
 
@@ -131,3 +131,5 @@ Game.prototype.cronom = function () {
     this.crono--;
   }.bind(this), 1000)
 }
+
+//a
