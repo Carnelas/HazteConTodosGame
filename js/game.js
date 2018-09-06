@@ -6,10 +6,10 @@ function Game(canvasId) {
   this.crono = 60;
   this.mainSong = new Audio();
   this.mainSong.volume = 0.5;
-  this.mainSong.src = "audios/maintheme.mp3"
+  this.mainSong.src = "Audios/maintheme.mp3"
   this.objectSong = new Audio();
   this.objectSong.volume = 0.3;
-  this.objectSong.src = "audios/objetos.mp3"
+  this.objectSong.src = "Audios/objetos.mp3"
 }
 
 /* start */
