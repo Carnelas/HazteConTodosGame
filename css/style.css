@@ -1,5 +1,13 @@
+@font-face {
+  font-family: "joystix";
+  src: url("../Fonts/joystix.ttf")
+}
+
 body{
   background-image: url("../images/fondo.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
 }
 
 header {
@@ -11,10 +19,23 @@ header {
   align-content: flex-end;
 }
 
+.btn {
+display: block;
+text-decoration: none;
+text-transform: uppercase;
+padding: 16px 36px 22px;
+border: 2px solid;
+border-color: grey;
+border-radius: 6px;
+margin-bottom: 16px;
+color: white;
+}
+
 
 canvas {
-  width: 80%;
+  width: 70%;
   border: 1px, solid, black;
+  display: none;
 }
 
 .container {
@@ -23,8 +44,24 @@ canvas {
   flex-direction: column;
 }
 
-h1{
-font-family: Arial, Helvetica, sans-serif;
+
+.game-intro{
+font-family: "joystix";
+position:relative;
 text-align: center;
 color: white;
+padding: 250px;
+}
+
+hr{
+  width: 60%;
+}
+
+.winner {
+  text-align: center;
+  font-size: 100px;
+  font-family: "joystix";
+  color: yellowgreen;
+  width: 70%;
+  position: relative;
 }
