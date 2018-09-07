@@ -51,7 +51,7 @@ Game.prototype.time = function () {
     $('canvas').css('display','none');
     /* if ("FIN DEL TIEMPO. El ganador es "+ winner +" !")) {
       this.reset();} */
-  }.bind(this), 5000);
+  }.bind(this), 60000);
 }
 
 Game.prototype.clearObjects = function () {
