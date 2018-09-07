@@ -49,8 +49,6 @@ Game.prototype.time = function () {
     }
     document.getElementById('winner').innerHTML = "Winner is " + winner;
     $('canvas').css('display','none');
-    /* if ("FIN DEL TIEMPO. El ganador es "+ winner +" !")) {
-      this.reset();} */
   }.bind(this), 60000);
 }
 
