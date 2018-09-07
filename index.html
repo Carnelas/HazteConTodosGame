@@ -2,7 +2,7 @@
 <html>
 <head>
   <title>Mi juego</title>
-
+  <script src= "https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
   <script type="text/javascript" src="js/background.js"></script>
   <script type="text/javascript" src="js/player.js"></script>
   <script type="text/javascript" src="js/objects.js"></script>
@@ -11,11 +11,13 @@
   <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
+ <div id= "game-intro" class= "game-intro">
+    <h1>Player 1 juega con W A S D <hr> Player 2 juega con las flechas</h1>
+    <button id="start-button" class="button">START</button>
+  </div>
+<div id = "winner" class = "winner"></div>
 <div class = "container">
   <canvas id="canvas" width="1400" height="800"></canvas>
-</div>
-<div class= "indicaciones">
-  <h1>Player 1 juega con W A S D <hr> Player 2 juega con las flechas</h1>
 </div>
 </body>
 </html>

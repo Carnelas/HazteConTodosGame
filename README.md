@@ -1,4 +1,6 @@
-# Project-1-the-game
+# Proyect-1-the-game
 Ironhack first project, the game
 
-Celia Arnelas Benito
+Faltan cosas por solucionar:
+- Crear pantalla inicio
+- Arreglar bug caída
