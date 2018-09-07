@@ -12,7 +12,6 @@ function Game(canvasId) {
   this.objectSong.src = "audios/objetos.mp3"
 }
 
-/* start */
 Game.prototype.start = function () {
   this.clear();
   this.draw();
@@ -20,18 +19,14 @@ Game.prototype.start = function () {
   this.moveAll();
   this.mainSong.play();
   this.framesCounter++;
-  //esto controla la velocidad a la que se generan los obstaculos
   if (this.framesCounter % 60 == 0) {
-    this.generateObjects();
-  }
-  if (this.isCollision()) {
-  }
+    this.generateObjects();}
+  if (this.isCollision()) {}
   if (this.framesCounter % 200 == 0) {
-    this.clearObjects();
-  }
+    this.clearObjects();}
   window.requestAnimationFrame(this.start.bind(this));
 };
-/* inicia un nuevo juego */
+
 Game.prototype.reset = function () {
   this.background = new Background(this);
   this.player1 = new Player(this, 0);
@@ -45,32 +40,29 @@ Game.prototype.reset = function () {
   this.time();
 };
 
+//cambiar este alert
 Game.prototype.time = function () {
   setTimeout(function () {
     clearInterval(this.cronominterval)
-    // this.stop(); 
-    if (confirm("FIN DEL TIEMPO.")) {
-      this.reset();
-
+    var winner = ""
+    if (this.player1.points > this.player2.points){
+      winner = "Player 1"
+    } else {
+      winner = "Player 2"
     }
+    if (confirm("FIN DEL TIEMPO. El ganador es "+ winner +" !")) {
+      this.reset();}
   }.bind(this), 60000);
 }
-
-//limpia intervalos
-Game.prototype.stop = function () {
-  clearInterval(this.interval);
-};
 
 Game.prototype.clearObjects = function () {
   this.objects.shift()
 }
 
-/* clear */
 Game.prototype.clear = function () {
   this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
 };
 
-/* draw */
 Game.prototype.draw = function () {
   this.background.draw();
   this.players.forEach(function (player, index) {
@@ -83,7 +75,6 @@ Game.prototype.draw = function () {
   this.drawCrono();
 };
 
-/* cosas a mover */
 Game.prototype.moveAll = function () {
   this.players.forEach(function (player, index) {
     player.move();
@@ -111,11 +102,11 @@ Game.prototype.isCollision = function () {
   }.bind(this));
 }
 
-// dibujar puntos en la pantalla
 Game.prototype.drawPoints = function () {
   this.players.forEach(function (player, index) {
     this.ctx.font = "60px Verdana";
     this.ctx.fillStyle = "black";
+    
     this.ctx.fillText(Math.floor(player.points), 50 + 1150 * index, 50);
   }.bind(this))
 }
@@ -131,5 +122,3 @@ Game.prototype.cronom = function () {
     this.crono--;
   }.bind(this), 1000)
 }
-
-//a
