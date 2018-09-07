@@ -16,12 +16,10 @@ function Objects(game, type) {
     this.points = 10;
     this.img.src = 'images/pokeball.png';
   }
-//dentro del switch añadir intervalos de tiempo para cada objeto
 
 this.x = Math.floor(Math.random() * 1300);
 this.y = Math.floor(Math.random() * 700);
 
-  // draw de objeto
   Object.prototype.draw = function() {
     this.game.ctx.drawImage(
       this.img,
@@ -32,7 +30,6 @@ this.y = Math.floor(Math.random() * 700);
     );
   }
   
-// medidas de la imagen a representar en el canvas
   this.w = 40;
   this.h = 50;
   }

@@ -15,7 +15,6 @@ function Game(canvasId) {
 Game.prototype.start = function () {
   this.clear();
   this.draw();
-  this.drawCrono();
   this.moveAll();
   this.mainSong.play();
   this.framesCounter++;
@@ -36,8 +35,6 @@ Game.prototype.reset = function () {
   this.framesCounter = 0;
   this.objects = [];
   this.crono = 60;
-  this.cronom();
-  this.time();
 };
 
 //cambiar este alert
@@ -50,9 +47,11 @@ Game.prototype.time = function () {
     } else {
       winner = "Player 2"
     }
-    if (confirm("FIN DEL TIEMPO. El ganador es "+ winner +" !")) {
-      this.reset();}
-  }.bind(this), 60000);
+    document.getElementById('winner').innerHTML = "Winner is " + winner;
+    $('canvas').css('display','none');
+    /* if ("FIN DEL TIEMPO. El ganador es "+ winner +" !")) {
+      this.reset();} */
+  }.bind(this), 5000);
 }
 
 Game.prototype.clearObjects = function () {

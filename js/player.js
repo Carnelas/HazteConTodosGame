@@ -5,24 +5,16 @@ function Player(game, number) {
   this.setKeys(this.number);
   this.setListeners();
   this.points = 0;
-  //posición en la pantalla
-
   this.topSpeed = 20;
   this.speedX = 0;
   this.speedY = 0;
-
-  // número de imágenes diferentes
-  this.img.frames = 4;
-  //al mover esto la imagen cambia en horizontal
-  this.img.frameIndex = 0;
-
-  // medidas de la imagen a representar en el canvas
+  this.img.frames = 4; //vertical
+  this.img.frameIndex = 0; //al variar esto cambia la posición
   this.w = 50;
   this.h = 70;
   this.vy = 1;
 }
 
-// draw de player
 Player.prototype.draw = function () {
   this.game.ctx.drawImage(
     this.img,
@@ -37,7 +29,6 @@ Player.prototype.draw = function () {
   );
   this.animateImg();
 }
-
 
 Player.prototype.move = function (pos, speed) {
   var nextPosX = this.x + this.speedX;
@@ -88,13 +79,12 @@ Player.prototype.setListeners = function () {
 }
 
 Player.prototype.animateImg = function () {
-  // se va cambiando el frame. Cuanto mayor es el módulo, mas lento se mueve el personaje
   if (this.game.framesCounter % 10 === 0) {
     this.img.frameIndex += 1;
-    // Si el frame es el último, se vuelve al primero
     if (this.img.frameIndex > 3) this.img.frameIndex = 0;
   }
 };
+
 Player.prototype.setKeys = function (number) {
   switch (number) {
     case 0:
